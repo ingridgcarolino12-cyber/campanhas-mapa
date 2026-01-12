@@ -1,29 +1,933 @@
 {
   "campanha": {
-    "nome": "BACK SEAT - MODELO",
-    "cliente": "Cliente (opcional)",
+    "nome": "BACK SEAT - ESTÁCIO - Jan/26",
+    "cliente": "Estácio",
     "updated_at": "2026-01-12"
   },
   "pontos": [
     {
       "id": 1,
-      "nome": "Ponto 1 (texto original)",
-      "lat": -23.561684,
-      "lng": -46.655981,
-      "endereco_resolvido": "Av. Paulista, 1000 - Bela Vista, São Paulo - SP",
-      "bairro": "Bela Vista",
-      "cidade": "São Paulo",
-      "uf": "SP"
+      "nome": "Estrada da Aldeinha, 84-106",
+      "lat": -23.5080094,
+      "lng": -46.8492893
     },
     {
       "id": 2,
-      "nome": "Ponto 2 (texto original)",
-      "lat": -23.55052,
-      "lng": -46.633308,
-      "endereco_resolvido": "Praça da Sé, s/n - Sé, São Paulo - SP",
-      "bairro": "Sé",
-      "cidade": "São Paulo",
-      "uf": "SP"
+      "nome": "Av. Marginal do Ribeirão, 4401",
+      "lat": -23.5498796,
+      "lng": -46.8217488
+    },
+    {
+      "id": 3,
+      "nome": "Av. Marginal do Ribeirão, 445",
+      "lat": -23.5498796,
+      "lng": -46.8217488
+    },
+    {
+      "id": 4,
+      "nome": "Av. Marginal do Ribeirão, 3841",
+      "lat": -23.5498796,
+      "lng": -46.8217488
+    },
+    {
+      "id": 5,
+      "nome": "Avenida Marginal do Ribeirão",
+      "lat": -23.5498796,
+      "lng": -46.8217488
+    },
+    {
+      "id": 6,
+      "nome": "Av. Marginal do Ribeirão",
+      "lat": -23.5498796,
+      "lng": -46.8217488
+    },
+    {
+      "id": 7,
+      "nome": "Av. Marginal do Ribeirão, 2600",
+      "lat": -23.5498796,
+      "lng": -46.8217488
+    },
+    {
+      "id": 8,
+      "nome": "Avenida Marginal do Ribeirão 2180",
+      "lat": -23.5498796,
+      "lng": -46.8217488
+    },
+    {
+      "id": 9,
+      "nome": "Av. Marginal do Ribeirão, 297 - Parque Jandaia, Carapicuíba",
+      "lat": -23.5521572,
+      "lng": -46.8208777
+    },
+    {
+      "id": 10,
+      "nome": "Avenida Presidente Tancredo de Almeida Neves 1598",
+      "lat": -23.4636659,
+      "lng": -46.4989213
+    },
+    {
+      "id": 11,
+      "nome": "Avenida Presidente Tancredo de Almeida Neves 1367",
+      "lat": -23.4708489,
+      "lng": -46.5178272
+    },
+    {
+      "id": 12,
+      "nome": "Rua Presidente Tancredo A Neves",
+      "lat": -20.2989165,
+      "lng": -40.3931814
+    },
+    {
+      "id": 13,
+      "nome": "Avenida Presidente Tancredo de Almeida Neves",
+      "lat": -23.4708489,
+      "lng": -46.5178272
+    },
+    {
+      "id": 14,
+      "nome": "Avenida Antônio Faustino dos Santos, 369",
+      "lat": -23.5249161,
+      "lng": -46.8181661
+    },
+    {
+      "id": 15,
+      "nome": "Av. Antonio Faustino dos Santos",
+      "lat": -23.5249161,
+      "lng": -46.8181661
+    },
+    {
+      "id": 16,
+      "nome": "Avenida Antonio Faustino dos Santos 2400",
+      "lat": -23.5249161,
+      "lng": -46.8181661
+    },
+    {
+      "id": 17,
+      "nome": "Terminal Metropolitano Luiz Bortolosso / Km 21",
+      "lat": -23.524167,
+      "lng": -46.8158568
+    },
+    {
+      "id": 18,
+      "nome": "Avenida Desembargador Dr Eduardo Cunha de Abreu 171",
+      "lat": -23.5237356,
+      "lng": -46.8210912
+    },
+    {
+      "id": 19,
+      "nome": "Avenida Governador Mario Covas, 355",
+      "lat": -23.0986045,
+      "lng": -48.9538041
+    },
+    {
+      "id": 20,
+      "nome": "Avenida Consolação 25-315",
+      "lat": -16.6896966,
+      "lng": -49.319889
+    },
+    {
+      "id": 21,
+      "nome": "Alameda Araguaia",
+      "lat": -23.6378795,
+      "lng": -46.5559787
+    },
+    {
+      "id": 22,
+      "nome": "Alameda Araguaia, 3852",
+      "lat": -23.6378795,
+      "lng": -46.5559787
+    },
+    {
+      "id": 23,
+      "nome": "Alameda Araguacema 138",
+      "lat": -23.5015692,
+      "lng": -46.824631
+    },
+    {
+      "id": 24,
+      "nome": "Alameda Araguacema",
+      "lat": -23.5015692,
+      "lng": -46.824631
+    },
+    {
+      "id": 25,
+      "nome": "Alameda Caiapós, 564",
+      "lat": -23.4996243,
+      "lng": -46.8249919
+    },
+    {
+      "id": 26,
+      "nome": "Alameda Caiapós, 900",
+      "lat": -23.4996243,
+      "lng": -46.8249919
+    },
+    {
+      "id": 27,
+      "nome": "Av. Ceci, 238 - Jardim Mutinga, Barueri",
+      "lat": -23.4979141,
+      "lng": -46.8211607
+    },
+    {
+      "id": 28,
+      "nome": "Av. Aruanã, 634",
+      "lat": -16.6931575,
+      "lng": -49.2016575
+    },
+    {
+      "id": 29,
+      "nome": "Av. Tucunaré, 1498",
+      "lat": -23.4997262,
+      "lng": -46.8372435
+    },
+    {
+      "id": 30,
+      "nome": "Avenida Marcos Penteado de Ulhôa Rodrigues",
+      "lat": -23.4697683,
+      "lng": -46.8421156
+    },
+    {
+      "id": 31,
+      "nome": "Av. Marcos Penteado de Ulhôa Rodrigues, 3565",
+      "lat": -23.4697683,
+      "lng": -46.8421156
+    },
+    {
+      "id": 32,
+      "nome": "Avenida Marcos Penteado de Ulhoa Rodrigues, 3436, Tamboré, Santana de Parnaíba, Sp, Br",
+      "lat": -23.4697683,
+      "lng": -46.8421156
+    },
+    {
+      "id": 33,
+      "nome": "Avenida Marcos Penteado de Ulhôa Rodrigues 2900",
+      "lat": -23.4697683,
+      "lng": -46.8421156
+    },
+    {
+      "id": 34,
+      "nome": "Av. Marcos Penteado de Ulhôa Rodrigues, 2329",
+      "lat": -23.4697683,
+      "lng": -46.8421156
+    },
+    {
+      "id": 35,
+      "nome": "Av. Marcos Penteado de Ulhôa Rodrigues",
+      "lat": -23.4697683,
+      "lng": -46.8421156
+    },
+    {
+      "id": 36,
+      "nome": "Av. Marcos Penteado de Ulhôa Rodrigues,",
+      "lat": -23.469779,
+      "lng": -46.8693192
+    },
+    {
+      "id": 37,
+      "nome": "Estrada Copaiba, 249",
+      "lat": -23.800502,
+      "lng": -46.6182216
+    },
+    {
+      "id": 38,
+      "nome": "Avenida Marginal do Ribeirão 6121",
+      "lat": -23.5570064,
+      "lng": -46.8237288
+    },
+    {
+      "id": 39,
+      "nome": "Avenida Inocêncio Seráfico",
+      "lat": -23.5667856,
+      "lng": -46.8310529
+    },
+    {
+      "id": 40,
+      "nome": "Av. Inocêncio Seráfico, 5247 - Centro, Carapicuíba",
+      "lat": -23.5213257,
+      "lng": -46.835833
+    },
+    {
+      "id": 41,
+      "nome": "Avenida Inocêncio Seráfico 5087",
+      "lat": -23.5667856,
+      "lng": -46.8310529
+    },
+    {
+      "id": 42,
+      "nome": "Av. Inocêncio Seráfico, 4367 - Vila Dirce, Carapicuíba",
+      "lat": -23.5667856,
+      "lng": -46.8310529
+    },
+    {
+      "id": 43,
+      "nome": "Avenida Inocêncio Seráfico 4225",
+      "lat": -23.5667856,
+      "lng": -46.8310529
+    },
+    {
+      "id": 44,
+      "nome": "Avenida Inocêncio Seráfico 3895",
+      "lat": -23.5667856,
+      "lng": -46.8310529
+    },
+    {
+      "id": 45,
+      "nome": "Avenida Inocêncio Seráfico 3755",
+      "lat": -23.5667856,
+      "lng": -46.8310529
+    },
+    {
+      "id": 46,
+      "nome": "Avenida Inocêncio Seráfico 3573",
+      "lat": -23.5667856,
+      "lng": -46.8310529
+    },
+    {
+      "id": 47,
+      "nome": "Avenida Inocêncio Seráfico, 3139",
+      "lat": -23.5667856,
+      "lng": -46.8310529
+    },
+    {
+      "id": 48,
+      "nome": "Avenida Inocêncio Seráfico 2905",
+      "lat": -23.5667856,
+      "lng": -46.8310529
+    },
+    {
+      "id": 49,
+      "nome": "Avenida Inocêncio Seráfico 2405",
+      "lat": -23.5667856,
+      "lng": -46.8310529
+    },
+    {
+      "id": 50,
+      "nome": "Av. Inocêncio Seráfico, 2333",
+      "lat": -23.5667856,
+      "lng": -46.8310529
+    },
+    {
+      "id": 51,
+      "nome": "Avenida Inocêncio Seráfico 1879",
+      "lat": -23.5667856,
+      "lng": -46.8310529
+    },
+    {
+      "id": 52,
+      "nome": "Avenida Inocêncio Seráfico, 1573",
+      "lat": -23.5667856,
+      "lng": -46.8310529
+    },
+    {
+      "id": 53,
+      "nome": "Avenida Inocêncio Seráfico 1481",
+      "lat": -23.5667856,
+      "lng": -46.8310529
+    },
+    {
+      "id": 54,
+      "nome": "Av. Inocêncio Seráfico 1239",
+      "lat": -23.5667856,
+      "lng": -46.8310529
+    },
+    {
+      "id": 55,
+      "nome": "Avenida Inocêncio Seráfico, 1044",
+      "lat": -23.5667856,
+      "lng": -46.8310529
+    },
+    {
+      "id": 56,
+      "nome": "Av. Inocêncio Seráfico, 465",
+      "lat": -23.5667856,
+      "lng": -46.8310529
+    },
+    {
+      "id": 57,
+      "nome": "Avenida Inocêncio Seráfico 313",
+      "lat": -23.5667856,
+      "lng": -46.8310529
+    },
+    {
+      "id": 58,
+      "nome": "Avenida Inocêncio Seráfico 33",
+      "lat": -23.5667856,
+      "lng": -46.8310529
+    },
+    {
+      "id": 59,
+      "nome": "Avenida Miriam 25",
+      "lat": -23.5214748,
+      "lng": -46.8351358
+    },
+    {
+      "id": 60,
+      "nome": "Carapicuíba",
+      "lat": -23.5234673,
+      "lng": -46.8406808
+    },
+    {
+      "id": 61,
+      "nome": "Avenida Piracema, 288",
+      "lat": -23.4981631,
+      "lng": -46.8305372
+    },
+    {
+      "id": 62,
+      "nome": "Alameda Araguaia - Giga Atacado",
+      "lat": -23.5013908,
+      "lng": -46.8342738
+    },
+    {
+      "id": 63,
+      "nome": "Alameda Araguaia, 1801",
+      "lat": -23.4992681,
+      "lng": -46.8435701
+    },
+    {
+      "id": 64,
+      "nome": "Alameda Rio Negro",
+      "lat": -3.004934,
+      "lng": -60.0156692
+    },
+    {
+      "id": 65,
+      "nome": "Alameda Purus, 264",
+      "lat": -23.4929759,
+      "lng": -46.8531558
+    },
+    {
+      "id": 66,
+      "nome": "Alameda Tocantins, 995",
+      "lat": -23.5021676,
+      "lng": -46.8580948
+    },
+    {
+      "id": 67,
+      "nome": "Alameda Tocantins 905",
+      "lat": -23.5021676,
+      "lng": -46.8580948
+    },
+    {
+      "id": 68,
+      "nome": "Alameda Tocantins, 279",
+      "lat": -23.5021676,
+      "lng": -46.8580948
+    },
+    {
+      "id": 69,
+      "nome": "Alameda Tocantins, 245",
+      "lat": -23.5021676,
+      "lng": -46.8580948
+    },
+    {
+      "id": 70,
+      "nome": "Alameda Rio Negro, 313",
+      "lat": -3.004934,
+      "lng": -60.0156692
+    },
+    {
+      "id": 71,
+      "nome": "Rua Dumont 510",
+      "lat": -22.8932977,
+      "lng": -47.0546674
+    },
+    {
+      "id": 72,
+      "nome": "Rua Colômbia 1056",
+      "lat": -22.8811815,
+      "lng": -43.5897604
+    },
+    {
+      "id": 73,
+      "nome": "Rua Jaci 11",
+      "lat": -22.80209,
+      "lng": -43.1839018
+    },
+    {
+      "id": 74,
+      "nome": "Rua Jaci 359",
+      "lat": -22.8436013,
+      "lng": -43.2868173
+    },
+    {
+      "id": 75,
+      "nome": "Rua dos Patriotas 67",
+      "lat": -23.5836552,
+      "lng": -46.6093988
+    },
+    {
+      "id": 76,
+      "nome": "Rua Manoel Raimundo da Cruz 80",
+      "lat": -7.8157007,
+      "lng": -38.1542434
+    },
+    {
+      "id": 77,
+      "nome": "Rua Bariri 120",
+      "lat": -19.9340499,
+      "lng": -44.1180037
+    },
+    {
+      "id": 78,
+      "nome": "Rua Gáspar da Silva 101",
+      "lat": -23.5736456,
+      "lng": -46.479319
+    },
+    {
+      "id": 79,
+      "nome": "Avenida Victório Fornazzaro 2121",
+      "lat": -23.519437,
+      "lng": -46.8559611
+    },
+    {
+      "id": 80,
+      "nome": "Rua Antônia Gozzi Valverde, 429",
+      "lat": -23.528667,
+      "lng": -46.8551409
+    },
+    {
+      "id": 81,
+      "nome": "Rua Colômbia, 253",
+      "lat": -27.2461001,
+      "lng": -52.0344685
+    },
+    {
+      "id": 82,
+      "nome": "Avenida Comendador Dante Carraro 223",
+      "lat": -23.5354157,
+      "lng": -46.8522434
+    },
+    {
+      "id": 83,
+      "nome": "Avenida Rui Barbosa",
+      "lat": -22.917782,
+      "lng": -43.0860858
+    },
+    {
+      "id": 84,
+      "nome": "Avenida Deputado Emílio Carlos, 1910",
+      "lat": -23.4905427,
+      "lng": -46.6756576
+    },
+    {
+      "id": 85,
+      "nome": "Avenida Deputado Emílio Carlos, 525",
+      "lat": -23.5174459,
+      "lng": -46.8414515
+    },
+    {
+      "id": 86,
+      "nome": "Avenida Deputado Emílio Carlos 361",
+      "lat": -23.5013816,
+      "lng": -46.6734603
+    },
+    {
+      "id": 87,
+      "nome": "Avenida Bom Pastor, 135",
+      "lat": -23.6692449,
+      "lng": -46.5526619
+    },
+    {
+      "id": 88,
+      "nome": "Avenida Bom Pastor",
+      "lat": -23.6795452,
+      "lng": -46.5537535
+    },
+    {
+      "id": 89,
+      "nome": "Avenida Yojiro Takaoka, 1",
+      "lat": -23.474602,
+      "lng": -46.8636024
+    },
+    {
+      "id": 90,
+      "nome": "Avenida Yojiro Takaoka",
+      "lat": -23.474602,
+      "lng": -46.8636024
+    },
+    {
+      "id": 91,
+      "nome": "Av. Dr. Yojiro Takaoka, 2501",
+      "lat": -23.5095992,
+      "lng": -46.9305038
+    },
+    {
+      "id": 92,
+      "nome": "Alameda Rio Negro, 1441",
+      "lat": -3.004934,
+      "lng": -60.0156692
+    },
+    {
+      "id": 93,
+      "nome": "Alameda Araguaia 550",
+      "lat": -23.6408331,
+      "lng": -46.5548008
+    },
+    {
+      "id": 94,
+      "nome": "Alameda Araguaia 1930",
+      "lat": -23.6408331,
+      "lng": -46.5548008
+    },
+    {
+      "id": 95,
+      "nome": "Avenida Piracema 667",
+      "lat": -23.4981631,
+      "lng": -46.8305372
+    },
+    {
+      "id": 96,
+      "nome": "R. Consolação, 2",
+      "lat": 32.6614714,
+      "lng": -16.9086943
+    },
+    {
+      "id": 97,
+      "nome": "Av. Gov. Mario Covas 74",
+      "lat": -23.2964198,
+      "lng": -47.3045746
+    },
+    {
+      "id": 98,
+      "nome": "Avenida Desembargador Doutor Eduardo Cunha de Abreu",
+      "lat": -23.5237356,
+      "lng": -46.8210912
+    },
+    {
+      "id": 99,
+      "nome": "Av. Antonio Faustino dos Santos, 5",
+      "lat": -23.5249161,
+      "lng": -46.8181661
+    },
+    {
+      "id": 100,
+      "nome": "Av. Antonio Faustino dos Santos, 750",
+      "lat": -23.5249161,
+      "lng": -46.8181661
+    },
+    {
+      "id": 101,
+      "nome": "Av. Antonio Faustino dos Santos, 261",
+      "lat": -23.5249161,
+      "lng": -46.8181661
+    },
+    {
+      "id": 102,
+      "nome": "Rua Alvinopolis, 1-129",
+      "lat": -21.6213524,
+      "lng": -41.0137542
+    },
+    {
+      "id": 103,
+      "nome": "Avenida Presidente Tancredo de Almeida Neves 366",
+      "lat": -23.4631444,
+      "lng": -46.4983767
+    },
+    {
+      "id": 104,
+      "nome": "Avenida Leonil Crê Bortolosso 2181",
+      "lat": -23.5327641,
+      "lng": -46.8173418
+    },
+    {
+      "id": 105,
+      "nome": "Marginal do Ribeirão, 350",
+      "lat": -21.153343,
+      "lng": -47.9915578
+    },
+    {
+      "id": 106,
+      "nome": "Avenida Marginal do Ribeirão 30",
+      "lat": -23.5570064,
+      "lng": -46.8237288
+    },
+    {
+      "id": 107,
+      "nome": "Av. Marginal do Ribeirão, 522",
+      "lat": -23.5570064,
+      "lng": -46.8237288
+    },
+    {
+      "id": 108,
+      "nome": "Av. Marginal do Ribeirão, 442",
+      "lat": -23.5570064,
+      "lng": -46.8237288
+    },
+    {
+      "id": 109,
+      "nome": "Ponto Inicial/Final",
+      "lat": -23.4261813,
+      "lng": -46.5494818
+    },
+    {
+      "id": 110,
+      "nome": "Avenida Plutão, 765",
+      "lat": -23.5731842,
+      "lng": -46.8170942
+    },
+    {
+      "id": 111,
+      "nome": "Avenida Plutão,785",
+      "lat": -23.5731842,
+      "lng": -46.8170942
+    },
+    {
+      "id": 112,
+      "nome": "Avenida Plutão 573",
+      "lat": -23.5731842,
+      "lng": -46.8170942
+    },
+    {
+      "id": 113,
+      "nome": "Avenida Plutão 335",
+      "lat": -23.5731842,
+      "lng": -46.8170942
+    },
+    {
+      "id": 114,
+      "nome": "R. Júpiter, 543",
+      "lat": -22.816417,
+      "lng": -43.3139387
+    },
+    {
+      "id": 115,
+      "nome": "Rua Júpiter, 297a",
+      "lat": -22.816417,
+      "lng": -43.3139387
+    },
+    {
+      "id": 116,
+      "nome": "Estrada Onda Verde, 1152",
+      "lat": -23.5687652,
+      "lng": -46.81759
+    },
+    {
+      "id": 117,
+      "nome": "Rua Itajubá, 647",
+      "lat": -26.2531645,
+      "lng": -48.8427325
+    },
+    {
+      "id": 118,
+      "nome": "Rua Itajubá, 151",
+      "lat": -26.2555152,
+      "lng": -48.8454328
+    },
+    {
+      "id": 119,
+      "nome": "Rua Eduardo Augusto Mesquita, 935",
+      "lat": -23.5657471,
+      "lng": -46.8214393
+    },
+    {
+      "id": 120,
+      "nome": "Rua Eduardo Augusto Mesquita, 701",
+      "lat": -23.5657471,
+      "lng": -46.8214393
+    },
+    {
+      "id": 121,
+      "nome": "Rua Newton Macha Júnior- 2-100",
+      "lat": -23.5618214,
+      "lng": -46.82951
+    },
+    {
+      "id": 122,
+      "nome": "Rua Fortunato Grilenzone- 1-143",
+      "lat": -23.562314,
+      "lng": -46.8292221
+    },
+    {
+      "id": 123,
+      "nome": "Avenida Anselmo Cupini- 114-182",
+      "lat": -23.5630479,
+      "lng": -46.8316421
+    },
+    {
+      "id": 124,
+      "nome": "Avenida Inocêncio Seráfico 4367",
+      "lat": -23.5667856,
+      "lng": -46.8310529
+    },
+    {
+      "id": 125,
+      "nome": "Av. Inocêncio Seráfico 867",
+      "lat": -23.5667856,
+      "lng": -46.8310529
+    },
+    {
+      "id": 126,
+      "nome": "Avenida Perimetral Sudoeste, 205",
+      "lat": -23.5362508,
+      "lng": -46.8270373
+    },
+    {
+      "id": 127,
+      "nome": "Avenida Pilar do Sul 1551",
+      "lat": -22.9555099,
+      "lng": -43.607378
+    },
+    {
+      "id": 128,
+      "nome": "Avenida Perimetral Sudoeste",
+      "lat": -23.5362508,
+      "lng": -46.8270373
+    },
+    {
+      "id": 129,
+      "nome": "Rua José Gonçalves França 327",
+      "lat": -20.5678305,
+      "lng": -47.3511444
+    },
+    {
+      "id": 130,
+      "nome": "Estrada Cabreuva, 57 - Parque Jose Alexandre, Carapicuíba",
+      "lat": -23.5387447,
+      "lng": -46.8293094
+    },
+    {
+      "id": 131,
+      "nome": "Estrada Cabreúva- 633",
+      "lat": -23.5401992,
+      "lng": -46.832382
+    },
+    {
+      "id": 132,
+      "nome": "Estrada do Guatambú 08",
+      "lat": -23.6467287,
+      "lng": -46.986475
+    },
+    {
+      "id": 133,
+      "nome": "Estrada do Guatambú, 120",
+      "lat": -23.6467287,
+      "lng": -46.986475
+    },
+    {
+      "id": 134,
+      "nome": "Estrada do Guatambú, 600",
+      "lat": -23.6467287,
+      "lng": -46.986475
+    },
+    {
+      "id": 135,
+      "nome": "Estrada do Guatambú, 207",
+      "lat": -23.6467287,
+      "lng": -46.986475
+    },
+    {
+      "id": 136,
+      "nome": "Estrada do Guatambú, 750",
+      "lat": -23.6467287,
+      "lng": -46.986475
+    },
+    {
+      "id": 137,
+      "nome": "Estrada do Gopiúva",
+      "lat": -23.5618169,
+      "lng": -46.8315634
+    },
+    {
+      "id": 138,
+      "nome": "Estrada do Gopiúva 930",
+      "lat": -23.5618169,
+      "lng": -46.8315634
+    },
+    {
+      "id": 139,
+      "nome": "Estrada de Gopiúva, 1140",
+      "lat": -23.5452961,
+      "lng": -46.8228859
+    },
+    {
+      "id": 140,
+      "nome": "Estrada de Gopiúva, 1500",
+      "lat": -23.5452961,
+      "lng": -46.8228859
+    },
+    {
+      "id": 141,
+      "nome": "Estrada do Gopiúva 1930",
+      "lat": -23.5618169,
+      "lng": -46.8315634
+    },
+    {
+      "id": 142,
+      "nome": "Rua Tenente José Nogueira, 262",
+      "lat": -23.5610301,
+      "lng": -46.8291355
+    },
+    {
+      "id": 143,
+      "nome": "Rua Tenente José Nogueira, 51-A",
+      "lat": -23.5610301,
+      "lng": -46.8291355
+    },
+    {
+      "id": 144,
+      "nome": "Rua Tenente Alcides José de Freitas 200",
+      "lat": -23.5301195,
+      "lng": -46.8230183
+    },
+    {
+      "id": 145,
+      "nome": "Avenida Amazonas",
+      "lat": -11.8207853,
+      "lng": -77.1530467
+    },
+    {
+      "id": 146,
+      "nome": "Av. Amazonas 196",
+      "lat": -11.8207853,
+      "lng": -77.1530467
+    },
+    {
+      "id": 147,
+      "nome": "Av. Amazonas",
+      "lat": -12.1421044,
+      "lng": -76.9436404
+    },
+    {
+      "id": 148,
+      "nome": "Avenida Brasil, 32",
+      "lat": -33.4459346,
+      "lng": -70.6649519
+    },
+    {
+      "id": 149,
+      "nome": "Alameda Amazonas 113",
+      "lat": -12.9003206,
+      "lng": -38.3868534
+    },
+    {
+      "id": 150,
+      "nome": "Alameda Mamoré",
+      "lat": -23.4920118,
+      "lng": -46.8459886
+    },
+    {
+      "id": 151,
+      "nome": "Avenida Alphaville 698",
+      "lat": -22.8554343,
+      "lng": -47.0220204
+    },
+    {
+      "id": 152,
+      "nome": "Avenida Alphaville 493",
+      "lat": -22.8554343,
+      "lng": -47.0220204
+    },
+    {
+      "id": 153,
+      "nome": "Av Yojiro Takaoka, 2332 - Tamboré, Santana de Parnaíba",
+      "lat": -23.474602,
+      "lng": -46.8636024
+    },
+    {
+      "id": 154,
+      "nome": "Av. Dr. Yojiro Takaoka, 4306",
+      "lat": -23.5095992,
+      "lng": -46.9305038
     }
   ]
 }
