@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Mapa da Campanha</title>
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; }
+    header { padding: 14px 16px; border-bottom: 1px solid #eee; }
+    #map { height: calc(100vh - 58px); }
+    .badge { display:inline-block; padding:4px 8px; border:1px solid #ddd; border-radius:999px; font-size:12px; margin-left:8px; }
+  </style>
+</head>
+<body>
+  <header>
+    <b>Mapa da Campanha</b>
+    <span class="badge" id="count">carregando...</span>
+  </header>
+  <div id="map"></div>
+
+  <script>
+    async function main() {
+      const res = await fetch("campanha.json");
+      const data = await res.json();
+
+      const pontos = data.pontos || [];
+      document.getElementById("count").textContent = pontos.length + " paradas";
+
+      // fallback (SP) se vazio
+      const center = pontos.length ? [pontos[0].lat, pontos[0].lng] : [-23.55052, -46.633308];
+
+      const map = L.map('map').setView(center, 12);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; OpenStreetMap'
+      }).addTo(map);
+
+      const bounds = [];
+
+      pontos.forEach((p) => {
+        const marker = L.marker([p.lat, p.lng]).addTo(map);
+        const html = `
+          <div style="min-width:220px">
+            <div><b>${p.nome || "Parada"}</b></div>
+            ${p.bairro ? `<div>Bairro: ${p.bairro}</div>` : ""}
+            ${p.linha ? `<div>Linha: ${p.linha}</div>` : ""}
+            ${p.endereco_formatado ? `<div style="margin-top:6px;font-size:12px;color:#555">${p.endereco_formatado}</div>` : ""}
+          </div>
+        `;
+        marker.bindPopup(html);
+        bounds.push([p.lat, p.lng]);
+      });
+
+      if (bounds.length) map.fitBounds(bounds, { padding: [20, 20] });
+    }
+
+    main();
+  </script>
+</body>
+</html>
