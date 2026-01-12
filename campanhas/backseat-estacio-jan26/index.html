@@ -1,74 +1,222 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Mapa da Campanha</title>
-
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-    crossorigin=""
-  />
-  <script
-    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-    crossorigin=""
-  ></script>
-
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; }
-    header { padding: 14px 16px; border-bottom: 1px solid #eee; }
-    #map { height: calc(100vh - 58px); }
-    .badge { display:inline-block; padding:4px 8px; border:1px solid #ddd; border-radius:999px; font-size:12px; margin-left:8px; }
+    html, body { height: 100%; margin: 0; font-family: Arial, Helvetica, sans-serif; }
+    #map { height: 100%; width: 100%; }
+    .brand {
+      position: absolute;
+      top: 12px; left: 12px;
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(255,255,255,0.92);
+      border-radius: 12px;
+      padding: 10px 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      z-index: 10;
+      max-width: calc(100% - 24px);
+    }
+    .brand .logo {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: #0b6b3a;
+      display: grid; place-items: center;
+      color: #fff; font-weight: 700;
+      overflow: hidden;
+      flex: 0 0 auto;
+    }
+    .brand .logo img { width: 100%; height: 100%; object-fit: contain; }
+    .brand .text { line-height: 1.1; }
+    .brand .title { font-size: 14px; font-weight: 700; margin: 0; }
+    .brand .subtitle { font-size: 12px; margin: 2px 0 0; color: #333; opacity: 0.8; }
+
+    .panel {
+      position: absolute;
+      bottom: 12px; left: 12px;
+      background: rgba(255,255,255,0.92);
+      border-radius: 12px;
+      padding: 10px 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      z-index: 10;
+      max-width: calc(100% - 24px);
+      font-size: 12px;
+      color: #111;
+    }
+    .panel b { font-weight: 700; }
+    .panel .muted { opacity: 0.75; }
+
+    /* InfoWindow “card” */
+    .iw { min-width: 240px; max-width: 320px; }
+    .iw .iw-title { font-weight: 700; font-size: 14px; margin: 0 0 6px; }
+    .iw .iw-row { margin: 0 0 6px; font-size: 12px; color: #222; }
+    .iw .iw-chip {
+      display: inline-block;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(11,107,58,0.12);
+      color: #0b6b3a;
+      margin-right: 6px;
+      margin-bottom: 4px;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <b>Mapa da Campanha</b>
-    <span class="badge" id="count">carregando...</span>
-  </header>
   <div id="map"></div>
 
+  <!-- Branding (Carrega+). Se você colocar um arquivo 'logo_carrega.png' na mesma pasta, ele aparece aqui. -->
+  <div class="brand" id="brand">
+    <div class="logo">
+      <img id="logoImg" src="./logo_carrega.png" alt="Carrega+"
+           onerror="this.style.display='none'; this.parentElement.textContent='C+';" />
+    </div>
+    <div class="text">
+      <p class="title" id="campanhaNome">Mapa da Campanha</p>
+      <p class="subtitle" id="campanhaSub">Pins por pontos geocodificados</p>
+    </div>
+  </div>
+
+  <div class="panel" id="panel">
+    <div><b>Status:</b> <span id="status">Carregando…</span></div>
+    <div class="muted" id="count"></div>
+  </div>
+
   <script>
-    async function main() {
-      const res = await fetch("campanha.json");
-      const data = await res.json();
+    // ====== CONFIG (você só precisa colar sua Google Maps API Key abaixo) ======
+    const GOOGLE_MAPS_API_KEY = "COLE_SUA_CHAVE_AQUI";
 
-      const pontos = data.pontos || [];
-      document.getElementById("count").textContent = pontos.length + " paradas";
+    // Ícone do pin (arquivo na mesma pasta do index.html)
+    const PIN_URL = "./pin_carrega_36x36.png";
+    const PIN_SIZE = 36;
+    // ====== FIM CONFIG ======
 
-      // fallback (SP) se vazio
-      const center = pontos.length ? [pontos[0].lat, pontos[0].lng] : [-23.55052, -46.633308];
-
-      const map = L.map('map').setView(center, 12);
-
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; OpenStreetMap'
-      }).addTo(map);
-
-      const bounds = [];
-
-      pontos.forEach((p) => {
-        const marker = L.marker([p.lat, p.lng]).addTo(map);
-        const html = `
-          <div style="min-width:220px">
-            <div><b>${p.nome || "Parada"}</b></div>
-            ${p.bairro ? `<div>Bairro: ${p.bairro}</div>` : ""}
-            ${p.linha ? `<div>Linha: ${p.linha}</div>` : ""}
-            ${p.endereco_formatado ? `<div style="margin-top:6px;font-size:12px;color:#555">${p.endereco_formatado}</div>` : ""}
-          </div>
-        `;
-        marker.bindPopup(html);
-        bounds.push([p.lat, p.lng]);
+    function loadGoogleMaps() {
+      return new Promise((resolve, reject) => {
+        if (window.google && window.google.maps) return resolve();
+        const s = document.createElement("script");
+        s.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(GOOGLE_MAPS_API_KEY)}`;
+        s.async = true;
+        s.onerror = () => reject(new Error("Falha ao carregar Google Maps JS API. Verifique a chave."));
+        s.onload = () => resolve();
+        document.head.appendChild(s);
       });
+    }
 
-      if (bounds.length) map.fitBounds(bounds, { padding: [20, 20] });
+    function escapeHtml(str) {
+      return String(str ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    async function loadCampanha() {
+      const res = await fetch("./campanha.json", { cache: "no-store" });
+      if (!res.ok) throw new Error("Não consegui ler campanha.json");
+      return await res.json();
+    }
+
+    function validLatLng(p) {
+      const lat = Number(p.lat), lng = Number(p.lng);
+      return Number.isFinite(lat) && Number.isFinite(lng) && Math.abs(lat) <= 90 && Math.abs(lng) <= 180;
+    }
+
+    function buildInfoContent(p) {
+      const nome = escapeHtml(p.nome || "Ponto");
+      const end = escapeHtml(p.endereco_resolvido || "");
+      const bairro = escapeHtml(p.bairro || "");
+      const cidade = escapeHtml(p.cidade || "");
+      const uf = escapeHtml(p.uf || "");
+
+      const chips = [];
+      if (bairro) chips.push(`<span class="iw-chip">${bairro}</span>`);
+      if (cidade || uf) chips.push(`<span class="iw-chip">${cidade}${uf ? " - " + uf : ""}</span>`);
+
+      return `
+        <div class="iw">
+          <div class="iw-title">${nome}</div>
+          ${end ? `<div class="iw-row">${end}</div>` : ""}
+          ${chips.length ? `<div class="iw-row">${chips.join("")}</div>` : ""}
+          <div class="iw-row" style="opacity:.75">Lat/Lng: ${Number(p.lat).toFixed(6)}, ${Number(p.lng).toFixed(6)}</div>
+        </div>
+      `;
+    }
+
+    async function main() {
+      const statusEl = document.getElementById("status");
+      const countEl = document.getElementById("count");
+      try {
+        if (!GOOGLE_MAPS_API_KEY || GOOGLE_MAPS_API_KEY === "COLE_SUA_CHAVE_AQUI") {
+          statusEl.textContent = "Falta colar sua Google Maps API Key no index.html";
+          countEl.textContent = "Abra este arquivo e substitua COLE_SUA_CHAVE_AQUI pela sua chave.";
+          return;
+        }
+
+        const data = await loadCampanha();
+        const nomeCampanha = data?.campanha?.nome || "Mapa da Campanha";
+        const cliente = data?.campanha?.cliente || "";
+        document.getElementById("campanhaNome").textContent = nomeCampanha;
+        document.getElementById("campanhaSub").textContent = cliente ? `Cliente: ${cliente}` : "Pins por pontos geocodificados";
+
+        await loadGoogleMaps();
+
+        const map = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: -14.2350, lng: -51.9253 }, // Brasil (fallback)
+          zoom: 4,
+          mapTypeControl: false,
+          streetViewControl: false,
+          fullscreenControl: true
+        });
+
+        const pontos = Array.isArray(data?.pontos) ? data.pontos : [];
+        const validos = pontos.filter(validLatLng);
+
+        const bounds = new google.maps.LatLngBounds();
+        const info = new google.maps.InfoWindow();
+
+        const icon = {
+          url: PIN_URL,
+          scaledSize: new google.maps.Size(PIN_SIZE, PIN_SIZE),
+          anchor: new google.maps.Point(PIN_SIZE / 2, PIN_SIZE) // ponta do pin
+        };
+
+        validos.forEach((p) => {
+          const pos = { lat: Number(p.lat), lng: Number(p.lng) };
+          bounds.extend(pos);
+
+          const marker = new google.maps.Marker({
+            position: pos,
+            map,
+            icon,
+            title: p.nome || ""
+          });
+
+          marker.addListener("click", () => {
+            info.setContent(buildInfoContent(p));
+            info.open({ anchor: marker, map });
+          });
+        });
+
+        if (validos.length) {
+          map.fitBounds(bounds, 40);
+          statusEl.textContent = "OK";
+          countEl.textContent = `${validos.length} ponto(s) no mapa.`;
+        } else {
+          statusEl.textContent = "Sem pontos válidos";
+          countEl.textContent = "Verifique se campanha.json tem lat/lng preenchidos.";
+        }
+      } catch (e) {
+        statusEl.textContent = "Erro";
+        countEl.textContent = (e && e.message) ? e.message : String(e);
+        console.error(e);
+      }
     }
 
     main();
   </script>
 </body>
 </html>
+
