@@ -1,0 +1,29 @@
+{
+  "campanha": {
+    "nome": "BACK SEAT - MODELO",
+    "cliente": "Cliente (opcional)",
+    "updated_at": "2026-01-12"
+  },
+  "pontos": [
+    {
+      "id": 1,
+      "nome": "Ponto 1 (texto original)",
+      "lat": -23.561684,
+      "lng": -46.655981,
+      "endereco_resolvido": "Av. Paulista, 1000 - Bela Vista, São Paulo - SP",
+      "bairro": "Bela Vista",
+      "cidade": "São Paulo",
+      "uf": "SP"
+    },
+    {
+      "id": 2,
+      "nome": "Ponto 2 (texto original)",
+      "lat": -23.55052,
+      "lng": -46.633308,
+      "endereco_resolvido": "Praça da Sé, s/n - Sé, São Paulo - SP",
+      "bairro": "Sé",
+      "cidade": "São Paulo",
+      "uf": "SP"
+    }
+  ]
+}
